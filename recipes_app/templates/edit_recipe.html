@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<body>
+    <div class="header" style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;">
+        <div class="headerinfo_left">
+            <h1 style="margin-bottom: 0;">Edit Recipe</h1>
+        </div>
+        <div class="headerinfo_right">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+</div>
+    <form action="/recipes/edit" style="display: flex; flex-direction: column; width: 30%; padding-left: 33%;" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="recipe_name" id="recipe_name" value="{{recipe_info[0]['name']}}">
+        <label for="description">Description</label>
+        <textarea name="recipe_description" id="recipe_description" cols="40" rows="10">{{recipe_info[0]['description']}}</textarea>
+        <label for="instructions">Instructions</label>
+        <textarea name="recipe_instructions" id="recipe_instructions" cols="40" rows="10">{{recipe_info[0]['instructions']}}</textarea>
+        <label for="date">Date made on:</label>
+        <input type="date" name="recipe_date" id="recipe_date">
+        <label for="time">Under 30 minutes?</label>
+        <div>
+            <label for="yes">Yes</label>
+            <input type="radio" name="recipe_time" id="recipe_time" value="1" checked>
+            <label for="no">No</label>
+            <input type="radio" name="recipe_time" id="recipe_time" value="0">
+        </div>
+
+        <input type="hidden" value="{{recipe_info[0]['recipe_id']}}" name="recipe_id">
+
+        <button type="submit" style="margin-top: 40px; height: 40px;">Update</button>
+    </form>
+</body>
+</html>

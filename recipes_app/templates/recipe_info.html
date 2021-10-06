@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<body>
+    <div class="header" style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;">
+        <div class="headerinfo_left">
+            <h1 style="margin-bottom: 0;">Welcome {{data['user_first_name']}}</h1>
+        </div>
+        <div class="headerinfo_right">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div style="margin-left: 22%; margin-top: 100px;">
+        <h2>{{recipe_info[0]['name']}}</h1>
+        <p>Description: {{recipe_info[0]['description']}}</p>
+        {% if recipe_info[0]['under_30'] == 1 %}
+        <p>Under 30min: Yes</p>
+        {%else%}
+        <p>Under 30min: No</p>
+        {% endif %}
+        <p>Instructions: {{recipe_info[0]['instructions']}}</p>
+        <p>Made on: {{recipe_info[0]['made_on']}}</p>
+    </div>
+
+</body>
+</html>
